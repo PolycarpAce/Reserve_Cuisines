@@ -18,6 +18,8 @@ app.get("/api/customer", (req, res)=> {
         res.json(rows);
     } );
 
+
+    
 });
 
 app.listen(9000, () => console.log("App listening on port 9000"));
