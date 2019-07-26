@@ -1,24 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
+import NavBar from './NavBar';
+import Dinner from "./Dinner";
 import './App.css';
+
+const AVAILABLE_DINNER = [
+  {
+    menu_id: 1,
+    dish_name: "Panzenella",
+    restaurant_id: 3,
+    price:600,
+    preparation_time:"00:02:00"
+  },
+
+  {
+    menu_id: 2,
+    dish_name: "French touast",
+    restaurant_id: 2,
+    price:250,
+    preparation_time:"00:00:30"
+
+  },
+  {
+    menu_id: 3,
+    dish_name: "Bruschetta",
+    restaurant_id:4 ,
+    price:300,
+    preparation_time:"00:01:00"
+  }
+]
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       <NavBar />
+
       </header>
+      <main className="rc-main">
+        <Dinner availableDinner={AVAILABLE_DINNER} />
+      </main>
     </div>
   );
 }
