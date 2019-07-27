@@ -1,7 +1,7 @@
 import React from "react";
 
 function Menu({ availableDinner }){
-    const { menu_id, dish_name, restaurant_id , price, preparation_time } = availableDinner;
+    const { menu_id, dish_name, restaurant_id , price, preparation_time, dinner_count } = availableDinner;
     let dinnerText = "";
 
     if (dinner_count == 0) {
@@ -14,7 +14,7 @@ function Menu({ availableDinner }){
 
     return(
         <div className ="rc-menu">
-            <img className="rc-poster" src={} alt={dish_name}/>
+            <img className="rc-poster" src={"Cropped_20181105_134740.jpg"} alt={dish_name}/>
             <div className="rc-menu-body">
                 <div className="rc-title">{dish_name}</div>
                 <p className = "rc-dinner-count">{dinnerText}</p>

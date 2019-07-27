@@ -67,7 +67,7 @@
   width: 100%;
   height: 280px;
   object-fit: cover;
-  background: url("./no-poster.jpg") 0px 0px no-repeat;
+  background: url("./logo.svg") 0px 0px no-repeat;
 }
 
 .rc-menu-body {

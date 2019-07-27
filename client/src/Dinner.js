@@ -6,7 +6,7 @@ function Dinner({ availableDinner }) {
         <div className="rc-container">
             <div className="rc-dinner">
                 {availableDinner.map(m =>(
-                    <Menu key={m.menu_id} availableDinner{m} />
+                    <Menu key={m.menu_id} availableDinner={m} />
                 ))}
             </div>
         </div>
