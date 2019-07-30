@@ -1,33 +1,13 @@
 import React from 'react';
+import { Router } from "@reach/router";
 import NavBar from './NavBar';
 import Dinner from "./Dinner";
+import MenuDetails from "./MenuDetails";
+import RestaurantList from "./RestaurantList";
+import RestaurantDetails from"./RestaurantDetails";
+import Admin from "./Admin";
+import NotFound from "./NotFound";
 import './App.css';
-
-const AVAILABLE_DINNER = [
-  {
-    menu_id: 1,
-    dish_name: "Panzenella",
-    restaurant_id: 3,
-    price:600,
-    preparation_time:"00:02:00"
-  },
-
-  {
-    menu_id: 2,
-    dish_name: "French touast",
-    restaurant_id: 2,
-    price:250,
-    preparation_time:"00:00:30"
-
-  },
-  {
-    menu_id: 3,
-    dish_name: "Bruschetta",
-    restaurant_id:4 ,
-    price:300,
-    preparation_time:"00:01:00"
-  }
-]
 
 function App() {
   return (
@@ -37,7 +17,15 @@ function App() {
 
       </header>
       <main className="rc-main">
-        <Dinner availableDinner={AVAILABLE_DINNER} />
+        
+        <Router>
+          <Dinner path="/" />
+          <MenuDetails path="/menu/:menu_id" />
+          <RestaurantList path="/restaurants" />
+          <RestaurantDetails path="/restaurants/restaurant_id" />
+          <Admin path="/admin" />
+          <NotFound default />
+        </Router>
       </main>
     </div>
   );

@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "@reach/router";
 
 function NavBar(){
     return(
         <div className="rc-container">
             <nav className="rc-nav">
                 <span className="rc-title">Reserve Cuisine</span>
-                <a href="/">Home</a>
-                <a href="/restaurants">Restaurants</a>
-                <a href="/menu">Menu</a>
+                <link to="/">Home</link>
+                <link to="/restaurants">Restaurants</link>
+                <link to="/menu">Menu</link>
                 
             </nav>
         </div>
