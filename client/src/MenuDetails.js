@@ -79,13 +79,18 @@ class MenuDetails extends React.Component {
             price,
             preparation_time
         } = menuDetails[0];
-        const uniqueRestaurantNameDateString = [new this.setState(restaurantNameDateStrings)];
+        const restaurantNameDateStrings = restaurants.map(restaurants => {
+            const datastring = this.toDatatring(restaurants.time);
+
+            return '${restaurants.name}:${dateString}';
+        });
+        const uniqueRestaurantNameDateString = [...new Set(restaurantNameDateStrings)];
         const restaurantDinner = uniqueRestaurantNameDateString.map(
             restaurantNameDate => {
                 const restaurantName = restaurantNameDate.split(":")[0];
                 const dateDinner = restaurantNameDate.split(":")[1];
                 const times = restaurants.filter(
-                    restaurants => restaurant.resturant_name === restaurantName && this.toDateString(restaurant.time) === dateDinner
+                    restaurants => restaurants.resturant_name === restaurantName && this.toDateString(restaurants.time) === dateDinner
                 )
                 .map(restaurants => {
                     const timeFormatter = new Intl.DateTimeFormat("en", {
@@ -94,7 +99,7 @@ class MenuDetails extends React.Component {
                         hour12: true
                     });
 
-                    return timeFormatter.format(new Date(restaurant.time));
+                    return timeFormatter.format(new Date(restaurants.time));
 
                 });
 
@@ -106,7 +111,7 @@ class MenuDetails extends React.Component {
                 });
 
                 return {
-                    restaurantName, dateDinner: dateFormartter.format( new Date(dateDinner)), times
+                    restaurantName, dateDinner: DateTimeFormat.format( new Date(dateDinner)), times
                 };
             }
         );
@@ -134,7 +139,7 @@ class MenuDetails extends React.Component {
                 <div className= "rc-menu-restaurants">
                     <h1>Restaurants offering dinner</h1>
                     {restaurantDinner.map(restaurants => {
-                        const { restaurantName, dateDinner, times } = restaurant;
+                        const { restaurantName, dateDinner, times } = restaurants;
 
                         return (
                             <div key={'${restaurantName}:${dateDinner}'} className="rc-menu-restaurant">

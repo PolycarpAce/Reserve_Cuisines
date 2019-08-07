@@ -1,10 +1,11 @@
 import React from "react";
+import RestaurantAdmin from "./RestaurantAdmin"
 
 function Admin() {
     return (
-        <div>
-            <h1>Admin page</h1>
-        </div>
+       <div className="rc-conteiner">
+           <RestaurantAdmin />
+       </div>
     );
 }
 
